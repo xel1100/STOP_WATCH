@@ -1,6 +1,8 @@
 from tkinter import*
-
-
+# MEMBERS:
+# KRYSTYLL MAE M. LEMANA
+# JOHANNE RALPH TRANSMONTE
+# ALEXIS NATIVIDAD
 #start
 watch = Tk()
 watch.geometry ("1000x600")
