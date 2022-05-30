@@ -17,7 +17,7 @@ j = 00
 
 #FUNCTIONS
 def create_label(text,_x,_y):
-	label=Label(watch,text=text,fg="ivory3",bg="lightsteelblue4",font=("gothic",9,"bold"))
+	label=Label(watch,text=text,fg="ivory3",bg="lightsteelblue4",font=("gothic",10,"bold"))
 	label.place(x=_x,y=_y,width = 100,height=45)
 
 def Start():
