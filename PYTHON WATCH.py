@@ -9,9 +9,9 @@ watch.geometry ("1000x600")
 watch.title("STOPWATCH")
 watch.config(bg = "darkslategray")
 
+milliseconds = 00
 seconds = 00
 minutes = 00
-hours = 00
 h = 00
 j = 00
 
@@ -21,17 +21,17 @@ def create_label(text,_x,_y):
 	label.place(x=_x,y=_y,width = 100,height=45)
 
 def Start():
-	global time, timer, seconds, minutes, hours
-	seconds=seconds+1	
+	global time, timer, milliseconds, seconds, minutes
+	milliseconds=milliseconds+1	
 	if seconds == 60:
+		seconds = seconds+1
+		milliseconds=00
+	
+	elif seconds == 60:
 		minutes = minutes+1
 		seconds=00
-	
-	elif minutes == 60:
-		hours = hours+1
-		minutes=00
 		
-	timer.config(text = f"{hours}:{minutes}:{seconds}")
+	timer.config(text = f"{minutes}:{seconds}:{milliseconds}")
 	time = timer.after(60,Start)
 	
 def Stop():
@@ -39,22 +39,22 @@ def Stop():
 	timer.after_cancel(time)
 
 def Reset():
-	global seconds, minutes,  hours
+	global milliseconds, seconds,  minutes
 	seconds=00
 	minutes=00
 	hours=00
 	
-	timer.config(text = f'{hours}:{minutes}:{seconds}')
+	timer.config(text = f'{minutes}:{seconds}:{milliseconds}')
 	timer.after_cancel(time)
 	
 def Split():
-	global seconds,minutes,hours,time,self_job,timer,h,j
+	global milliseconds,seconds,minutes,time,self_job,timer,h,j
 	if h<9:
-		create_label((str(hours).zfill(2)+":"+str(minutes).zfill(2)+":"+str(seconds).zfill(2)),20+(110*h),400+(j*50))	
+		create_label((str(minutes).zfill(2)+":"+str(seconds).zfill(2)+":"+str(milliseconds).zfill(2)),20+(110*h),400+(j*50))	
 	else:
 		j+=1
 		h=0
-		create_label((str(hours).zfill(2)+":"+str(minutes).zfill(2)+":"+str(seconds).zfill(2)),20+(110*h),400+(j*50))
+		create_label((str(minutes).zfill(2)+":"+str(seconds).zfill(2)+":"+str(milliseconds).zfill(2)),20+(110*h),400+(j*50))
 	h+=1
 		 		 
 def Close():
