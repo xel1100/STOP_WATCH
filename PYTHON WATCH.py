@@ -23,7 +23,7 @@ def create_label(text,_x,_y):
 def Start():
 	global time, timer, seconds, minutes, hours
 	seconds=seconds+1	
-	if seconds == 60:
+	if seconds == 10:
 		minutes = minutes+1
 		seconds=00
 	
